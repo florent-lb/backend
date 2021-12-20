@@ -1,0 +1,15 @@
+{
+    "java.configuration.updateBuildConfiguration": "automatic",
+    "sqltools.connections": [
+        {
+            "previewLimit": 50,
+            "server": "localhost",
+            "port": 5000,
+            "driver": "PostgreSQL",
+            "name": "extia-rtp",
+            "database": "rtp",
+            "username": "extia",
+            "password": "extiapwd"
+        }
+    ]
+}
