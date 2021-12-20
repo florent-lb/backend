@@ -1,8 +1,6 @@
-package com.extia.infra.ws.server;
+package com.extia.infra.jpa;
 
 import javax.enterprise.context.ApplicationScoped;
-
-import com.extia.infra.jpa.WorkPlaceEntity;
 
 import io.quarkus.hibernate.reactive.panache.PanacheRepositoryBase;
 

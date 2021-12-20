@@ -8,6 +8,7 @@ import javax.inject.Inject;
 
 import com.extia.domain.WorkplaceDtoMapper;
 import com.extia.infra.jpa.WorkPlaceEntityMapper;
+import com.extia.infra.jpa.WorkplaceRepository;
 
 import io.smallrye.mutiny.Uni;
 

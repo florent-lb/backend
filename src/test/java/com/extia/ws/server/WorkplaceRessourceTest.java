@@ -1,8 +1,8 @@
 package com.extia.ws.server;
 
 import com.extia.infra.jpa.WorkPlaceEntity;
+import com.extia.infra.jpa.WorkplaceRepository;
 import com.extia.infra.ws.server.WorkPlacesDto;
-import com.extia.infra.ws.server.WorkplaceRepository;
 
 import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeEach;
@@ -19,6 +19,7 @@ import static org.assertj.core.api.Assertions.assertThat;
 
 import java.util.List;
 
+import javax.inject.Inject;
 import javax.json.bind.Jsonb;
 import javax.json.bind.JsonbBuilder;
 
@@ -26,6 +27,9 @@ import javax.json.bind.JsonbBuilder;
 public class WorkplaceRessourceTest {
     
     Jsonb jsonb;
+
+    @Inject
+    KeycloakUtils keycloakUtils;
 
     @InjectMock
     WorkplaceRepository repository;
@@ -55,6 +59,7 @@ public class WorkplaceRessourceTest {
         Mockito.when(repository.listAll()).thenReturn(Uni.createFrom().item(List.of(entity)));
 
         WorkPlacesDto dto =jsonb.fromJson(RestAssured.given()
+        .auth().oauth2(keycloakUtils.getConsultantToken())
         .get("workplace")
         .asString(),WorkPlacesDto.class);
         
